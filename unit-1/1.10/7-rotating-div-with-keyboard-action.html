@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        #rotating-box {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id=container>
+        <div id=rotating-box tabindex="0">
+        </div>
+        <script>
+            var box = document.getElementById("rotating-box");
+            var degrees = 0;
+            //These are initialized as global variables - use them to store ID of setInterval
+            var right;
+            var left;
+
+            function rotate(event) {
+                if (event.key == "ArrowRight") {
+                    clearInterval(left);
+
+                    right = setInterval
+                        (
+                            function () {
+                                degrees += 25;
+                                box.style.transform = "rotate(" + degrees + "deg)";
+                            }, 100
+                        );
+                }
+
+                else if (event.key == "ArrowLeft") {
+                    clearInterval(right);
+
+                    left = setInterval
+                        (
+                            function () {
+                                degrees -= 25;
+                                box.style.transform = "rotate(" + degrees + "deg)";
+                            }, 100
+                        );
+
+                }
+            }
+
+            document.body.addEventListener("keydown", rotate);
+
+        </script>
+</body>
+
+</html>
