@@ -1,7 +1,8 @@
 div {
     height: 50px;
     width: 50px;
-    margin: 1px position:absolute;
+    margin: 1px;
+    position:absolute;
     top: 0;
     left: 0;
 }
