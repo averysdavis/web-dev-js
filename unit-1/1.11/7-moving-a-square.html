@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 98%;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        #square {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id=container>
+        <div id=square tabindex="0">
+        </div>
+    </div>
+
+    <script>
+        //Write your code here.
+        var square = document.getElementById("square");
+        var posX = 0;
+        var posY = 0;
+
+        function move(event) {
+            square.style.borderColor = "blue";
+
+            if (event.key == "ArrowRight") {
+                posX += 5;
+                square.style.left = posX + "px";
+            }
+            else if (event.key == "ArrowLeft") {
+                posX -= 5;
+                square.style.left = posX + "px";
+            }
+            else if (event.key == "ArrowUp") {
+                posY -= 5;
+                square.style.top = posY + "px";
+            }
+            else if (event.key == "ArrowDown") {
+                posY += 5;
+                square.style.top = posY + "px";
+            }
+        }
+        document.body.addEventListener("keydown", move);
+    </script>
+</body>
+
+</html>
