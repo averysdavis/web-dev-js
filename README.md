@@ -10,6 +10,4 @@ Units:
 4. Storing and Collecting Data
 5. Project: Collecting Data
 6. How to Build and Maintain a Website
-7. Final Project 
-
-test
+7. Final Project
