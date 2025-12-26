@@ -46,29 +46,35 @@
         </tr>
     </table>
     <script>
-
-        //Copy over code from the previous exercise!
+        // Style header and columns
         $("th").css({
             "font-size": "20px",
             "font-style": "italic"
         });
-        //Write checkCost function here.
+
+        // First and third columns light blue
+        $("td:nth-child(odd)").css("background-color", "lightblue");
+
+        // Write checkCost function here.
         function checkCost() {
             var rows = $("tr");
 
+            // Check ALL rows except header
             for (var i = 1; i < rows.length; i++) {
                 var row = rows.eq(i);
 
-                var costText = row.find("td:nth-child(2)").text();
+                // Get ONLY the cost cell (2nd column)
+                var costCell = row.find("td:nth-child(2)");
+                var costText = costCell.text();
                 var cost = parseFloat(costText);
 
+                // If cost > 10, make ONLY that cell tomato
                 if (cost > 10) {
-                    row.css("background-color", "tomato");
+                    costCell.css("background-color", "tomato");
                 }
             }
         }
         checkCost();
-
     </script>
 </body>
 
