@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90%;
+
+        }
+
+        div div {
+            border: 1px solid black;
+            height: 50px;
+            width: 15%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id=container>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        //Use these global variables to set the color of your strobe lights!
+        var BLACK = "rgb(0, 0, 0)";
+        var WHITE = "rgb(255, 255, 255)";
+
+        $("#container div:nth-child(odd)").css("background-color", BLACK);
+        $("#container div:nth-child(even)").css("background-color", WHITE);
+
+        function changeColor() {
+            $("#container div").each(function () {
+                if ($(this).css("background-color") == BLACK) {
+                    $(this).css("background-color", WHITE);
+                }
+                else {
+                    $(this).css("background-color", BLACK);
+                }
+            });
+        }
+
+        setInterval(changeColor, 10);
+    </script>
+</body>
+
+</html>
