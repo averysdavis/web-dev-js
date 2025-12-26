@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #container {
+            display: flex;
+        }
+
+        div div {
+            height: 50px;
+            width: 50px;
+        }
+
+        #div-creator {
+            margin: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id=div-creator>
+        Add a Div!
+    </button>
+    <div id=container>
+
+    </div>
+    <script>
+        var timer;
+        var DIV_WIDTH = 50;
+        var numSquares = 0;
+
+        function color() {
+            var yanse = prompt("Enter a color for the new div!");
+
+            var newDiv = document.createElement("div");
+            newDiv.style.backgroundColor = "yanse";
+            newDiv.style.position = "absolute";
+            newDiv.style.left = "0px";
+
+            document.getElementById("container").appendChild(newDiv);
+
+            numSquares++;
+
+
+            function moveDiv() {
+                var currentLeft = parseInt(newDiv.style.left);
+                var targetPosition = (numSquares - 1) * DIV_WIDTH;
+
+                // Check if div reached its position
+                if (currentLeft < targetPosition) {
+                    newDiv.style.left = (currentLeft + 1) + "px";
+                    timer = setTimeout(moveDiv, 10); // Slow animation
+                }
+            }
+            moveDiv();
+        }
+
+        document.getElementById("div-creator").addEventListener("click", color())
+    </script>
+</body>
+
+</html>
