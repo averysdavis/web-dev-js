@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        #shrink {
+            height: 1px;
+            width: 1px;
+            border-radius: 50%;
+            background-color: lightgreen;
+            margin: 5px;
+            position: relative;
+            color: white;
+        }
+
+        #container1 {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #container2 {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            height: 75%;
+        }
+
+        #grow {
+            margin: 5px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id=container1>
+        <button id=grow>
+            <span style="font-size:20px">Grow</span>
+            and
+            <span style="font-size:8px">Shrink</span>
+        </button>
+        <p id=counter></p>
+    </div>
+    <div id=container2>
+        <div id=shrink></div>
+
+    </div>
+
+    <script>
+        var p = 0;
+
+        function sng() {
+            $("#shrink").animate(
+                {
+                    height: "300px",
+                    width: "300px"
+                }, 300, function () {
+                    $(this).animate(
+                        {
+                            height: "0px",
+                            width: "0px"
+                        }, 300, function () {
+                            p += 1;
+                            $("#counter").text("Count: " + p);
+                        })
+                }
+            );
+        }
+
+        $("#grow").on("click", sng);
+    </script>
+</body>
+
+</html>
