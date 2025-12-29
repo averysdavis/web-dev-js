@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        html,
+        body {
+            height: 95%;
+        }
+
+        #franken-div {
+            height: 50px;
+            width: 50px;
+            background-color: green;
+            position: relative;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 15px;
+            font-family: creepster, sans-serif;
+        }
+
+        .container {
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE="
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        crossorigin="anonymous">//Allows for color animation!</script>
+    <script src='https://use.edgefonts.net/creepster.js'>//Allows for the spooky font!</script>
+</head>
+
+<body>
+    <div class=container>
+        <button id=square>Square</button>
+        <button id=circle>Circle</button>
+        <button id=rect>Rectangle</button>
+        <button id=size>Change Size</button>
+        <button id=color>Change Color</button>
+    </div>
+    <div class=container>
+        <div id=franken-div></div>
+    </div>
+    <script>
+        //Write your code here!
+        var height = $("#franken-div").height();
+
+        function squareUp() {
+            $("#franken-div").css("border-radius", "0px");
+            $("#franken-div").animate(
+                { width: height }, 300);
+        }
+        $("#square").on("click", squareUp);
+
+        function circleUp() {
+            $("#franken-div").animate(
+                { borderRadius: "100%" }, 300);
+        }
+        $("#circle").on("click", circleUp);
+
+        function rectangleUp() {
+            $("#franken-div").css("border-radius", "0px");
+            $("#franken-div").animate(
+                { width: 2 * height }, 300);
+        }
+        $("#rect").on("click", rectangleUp);
+
+        function changeColor() {
+            var color = prompt("Pick a color")
+            $("#franken-div").animate(
+                { backgroundColor: color }, 300);
+        }
+        $("#color").on("click", changeColor);
+
+        function changeSize() {
+            var desHeight = prompt("Give a height")
+            var desWidth = prompt("Give a width")
+            $("#franken-div").animate(
+                {
+                    width: desWidth,
+                    height: desHeight
+                }, 300);
+        }
+        $("#size").on("click", changeSize);
+    </script>
+</body>
+
+</html>
