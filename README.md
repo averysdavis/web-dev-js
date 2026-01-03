@@ -1,7 +1,7 @@
 # Web Development (Javascript) 
 [Link to Course](https://codehs.com/course/web_development/overview)  
 &nbsp;  
-This course is intended to teach students the fundamentals of web development in a project-based learning environment. Students are taught the basic elements of web development, such as web hosting, file organization, and incorporating Javascript into HTML files.  
+This course is intended to teach students the fundamentals of web development in a project-based learning environment. Students are taught the basic elements of web development, such as web hosting, file organization, and incorporating Javascript into HTML files. Read the raws of the markdown notes files, not the compiled markdown.  
 &nbsp;  
 Units: 
 1. Introduction to Javascript in HTML
