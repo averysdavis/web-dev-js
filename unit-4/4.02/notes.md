@@ -4,7 +4,7 @@ key and value must be strings (can be converted)
 `var retrieveValue = localStorage.getItem("key");`
 DNE: returns null  
 or  
-`var retreiveValue = localStorage.user;`
+`var retrieveValue = localStorage.user;`
 DNE: returns undefined  
 
 null and undefined are both false (boolean)  
