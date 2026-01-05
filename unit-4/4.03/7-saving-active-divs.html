@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90%;
+
+        }
+
+        div div {
+            border: 1px solid black;
+            height: 50px;
+            width: 15%;
+            margin: 3px;
+            text-align: center;
+        }
+
+        .active {
+            background-color: lightblue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id=container>
+        <div class=highlight>0</div>
+        <div class=highlight>1</div>
+        <div class=highlight>2</div>
+        <div class=highlight>3</div>
+        <div class=highlight>4</div>
+        <div class=highlight>5</div>
+        <div class=highlight>6</div>
+        <div class=highlight>7</div>
+    </div>
+    <script>
+        var activeList = JSON.parse(localStorage.getItem("activeList")) ||
+            [false, false, false, false, false, false, false, false];
+
+        // Apply saved states on load
+        $(".highlight").each(function (index) {
+            if (activeList[index]) {
+                $(this).addClass("active");
+            }
+
+            // Add click handler
+            $(this).click(function () {
+                $(this).toggleClass("active");
+                activeList[index] = $(this).hasClass("active");
+                localStorage.setItem("activeList", JSON.stringify(activeList));
+            });
+        });
+    </script>
+</body>
+
+</html>
