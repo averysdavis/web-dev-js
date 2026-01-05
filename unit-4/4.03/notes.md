@@ -7,5 +7,5 @@ shows up as  "20,45,10,344" (a string)
 
 `localStorage.setItem("scores", JSON.stringify(listOfScores));`
 shows up as "[20,45,10,344]" (still a string)
-`var resScores = JSON.parse(localStorage.getItem("scores));`
+`var resScores = JSON.parse(localStorage.getItem("scores"));`
 shows up as [20,45,10,344] (not a string)
