@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+    <style>
+        button {
+            border-radius: 25px;
+            background-color: lightgray;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 15px;
+            transition: background-color 1s ease-out;
+        }
+
+        hr {
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        #container,
+        #previous-scores {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id=container>
+        <h2>Your Score Tracker</h2>
+        <button id=record-score>Record a score!</button>
+        <p id=latest-score></p>
+        <hr>
+    </div>
+    <div id="previous-scores"></div>
+    <script>
+        //Write your code here!
+        var scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+        function displayScores() {
+            $("#previous-scores").empty();
+
+            if (scores.length > 0) {
+                var latest = scores[scores.length - 1];
+                $("#latest-score").text("Latest: " + latest.score + " on " + latest.date);
+            }
+
+            for (var i = 0; i < scores.length; i++) {
+                var scoreItem = $("<p>").text("Score: " + scores[i].score + " - Date: " + scores[i].date);
+
+                $("#previous-scores").append(scoreItem);
+            }
+        }
+
+        function recordScore() {
+            var newScore = prompt("Enter your score:");
+
+            var currentDate = new Date().toLocaleDateString();
+
+            var scoreObj = {
+                score: newScore,
+                date: currentDate
+            };
+
+            scores.push(scoreObj);
+
+            localStorage.setItem("scores", JSON.stringify(scores));
+
+            displayScores();
+        }
+
+        displayScores();
+
+        $("#record-score").on("click", recordScore);
+    </script>
+</body>
+
+</html>
